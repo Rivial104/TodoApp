@@ -1,5 +1,7 @@
 #include "Interface.hpp"
 
+using namespace task;
+
 Interface::Interface(int type)
 {
     _type = type;
@@ -55,7 +57,7 @@ std::vector<Task*> Interface::deserialize_tasks(const char tlistpath[])
                             case 2: 
                             {
                                 const std::string type = task.substr(left+1, right-1);
-                                const int t = std::stoi(type);
+                                const task::Type t = static_cast<task::Type>(std::stoi(type));
                                 tmp->set_type(t);
                                 left = right;
                                 param++;
@@ -64,7 +66,7 @@ std::vector<Task*> Interface::deserialize_tasks(const char tlistpath[])
                             case 3: 
                             {
                                 const std::string prio = task.substr(left+1, right-1);
-                                const int p = std::stoi(prio);
+                                const task::Priority p = static_cast<task::Priority>(std::stoi(prio));
                                 tmp->set_priority(p);
                                 left = right;
                                 param++;

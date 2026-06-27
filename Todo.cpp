@@ -6,19 +6,22 @@
 #include "Interface.hpp"
 #include "Task.hpp"
 
+using namespace task;
 
 int main()
 {
     const char TASK_LIST_PATH[] = "./task_list.txt";
-    const int type = 2;
+    const int type = 1;
     Interface *ifc = new Interface(type);
+    ifc->init();
 
     printf("--- Checking saved task list ---\n");
 
     std::vector<Task*> tlist = ifc->deserialize_tasks(TASK_LIST_PATH);
 
-    printf("--- Checking saved app config ---\n");
+    printf("--- Loaded %i tasks from Task List\n", (int)tlist.size());
 
+    printf("--- Checking saved app config ---\n");
 
     printf("Print tasks from file: \n");
 

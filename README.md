@@ -2,7 +2,7 @@
 
 ## Kompilacja
 
-clang++ --std=c++20 Todo.cpp -o todo
+g++ *.cpp -o todo
 
 ## Struktura projektu
 

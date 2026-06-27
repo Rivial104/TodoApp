@@ -14,7 +14,9 @@ public:
 
     void init();
 
-    std::vector<Task*> deserialize_tasks(const char tlistpath[]);
+    bool wait_for_input();
+
+    std::vector<task::Task*> deserialize_tasks(const char tlistpath[]);
 
 private:
     int _type{0};
