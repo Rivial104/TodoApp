@@ -29,6 +29,11 @@ Command Parser::handle_input(std::string input)
         return Command::LIST;
     }
 
+    if (input == "exit")
+    {
+        return Command::EXIT;
+    }
+
     return Command::UNKNOWN;
 }
 

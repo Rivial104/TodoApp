@@ -2,7 +2,9 @@
 
 ## Kompilacja
 
-g++ *.cpp -o todo
+cmake -S . -B build
+cmake --build build
+./build/todo
 
 ## Struktura projektu
 

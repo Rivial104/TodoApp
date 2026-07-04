@@ -7,6 +7,7 @@
 #include "todo/Task.hpp"
 #include "todo/Renderer.hpp"
 #include "todo/Shell.hpp"
+#include "todo/Commander.hpp"
 
 Config config;
 
@@ -15,6 +16,7 @@ int main()
     Config config;
     Renderer *rend = new Renderer();
     Parser *parser = new Parser(config.type);
+    Commander *commander = new Commander();
 
     rend->print_init();
 
@@ -27,12 +29,20 @@ int main()
     printf("--- Checking saved app config ---\n");
 
 
-    printf("Enter commands or type 'help' for manual");
+    printf("Enter commands or type 'help' for manual:\n");
 
     Shell *sh = new Shell();
 
-    sh->listen();
+    bool app{true};
 
+    while(app)
+    {
+        std::string user_input = sh->listen();
+
+        Command cmd = parser->handle_input(user_input);
+        app = commander->handle_command(cmd);
+
+    }
 
     return 0;
 }

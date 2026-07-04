@@ -2,14 +2,13 @@
 
 #include "todo/Commander.hpp"
  
-
 bool Commander::handle_command(Command cmd)
 {
     switch(cmd)
     {
         case Command::HELP:
         {
-            printf("usage: help | list | info <id> | add | edit <id>");
+            printf("usage: help | list | info <id> | add | edit <id> | exit");
             return true;
             break;
         }
@@ -17,6 +16,12 @@ bool Commander::handle_command(Command cmd)
         case Command::LIST:
         {
             return true;
+            break;
+        }
+
+        case Command::EXIT:
+        {
+            return false;
             break;
         }
         

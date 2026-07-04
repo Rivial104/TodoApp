@@ -13,7 +13,7 @@ add_library(todo_core
 
 target_include_directories(todo_core
     PUBLIC
-    ${CMAKE+CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
 target_compile_features(todo_core
