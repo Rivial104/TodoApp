@@ -19,6 +19,12 @@ bool Commander::handle_command(Command cmd)
             break;
         }
 
+        case Command::ADD:
+        {
+            return true;
+            break;
+        }
+
         case Command::EXIT:
         {
             return false;
