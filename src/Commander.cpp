@@ -2,36 +2,43 @@
 
 #include "todo/Commander.hpp"
  
+Commander::Commander(TaskStorage &tstorage, Renderer &rend) : _tstorage(tstorage), _renderer(rend)
+{
+}
+
 bool Commander::handle_command(Command cmd)
 {
     switch(cmd)
     {
         case Command::HELP:
         {
-            printf("usage: help | list | info <id> | add | edit <id> | exit");
+            printf("usage: help | list | info <id> | add | edit <id> | exit\n");
             return true;
-            break;
         }
 
         case Command::LIST:
         {
-            return true;
-            break;
+            for (size_t i=0;i<_tstorage.size();i++)
+            {
+                _renderer.print_task(_tstorage.get_task(i));
+            }
+           return true;
+ 
         }
 
         case Command::ADD:
         {
             return true;
-            break;
         }
 
         case Command::EXIT:
         {
             return false;
-            break;
         }
         
-
+        default:
+        {
+            return true;
+        }
     }
-    return false;
 }

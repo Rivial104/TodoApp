@@ -11,8 +11,10 @@ class Renderer
 {
 public:
 
-void print_task(int id);
-void print_table();
+void print_task(Task *t)
+{
+    t->print();
+}
 
 void print_init()
 {

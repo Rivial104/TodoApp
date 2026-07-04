@@ -14,11 +14,6 @@ void Parser::init()
 
 Command Parser::handle_input(std::string input)
 {
-    int result{-1};
-
-    std::cin >> input;
-    
-
     if(input == "help" || input == "-h")
     {
         return Command::HELP;
