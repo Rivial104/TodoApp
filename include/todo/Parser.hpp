@@ -5,8 +5,8 @@
 #include <fstream>
 #include <iostream>
 
-#include "Task.hpp"
-#include "Commander.hpp"
+#include "todo/Task.hpp"
+#include "todo/Commander.hpp"
 
 class Parser
 {

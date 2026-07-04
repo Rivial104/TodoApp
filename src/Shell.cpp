@@ -1,4 +1,4 @@
-#include "Shell.hpp"
+#include "todo/Shell.hpp"
 
 Shell::Shell()
 {
@@ -6,7 +6,7 @@ Shell::Shell()
 
 };
 
-std::string Shell::get_input()
+std::string Shell::listen()
 {
     std::string input;
     std::getline(std::cin, input);

@@ -10,7 +10,7 @@ public:
     ~Shell();
 
 
-    std::string get_input();
+    std::string listen();
 
 private:
     bool verify_request(std::string &req);

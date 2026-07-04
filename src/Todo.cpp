@@ -2,10 +2,11 @@
 #include <fstream>
 #include <vector>
 
-#include "Config.hpp"
-#include "Parser.hpp"
-#include "Task.hpp"
-#include "Renderer.hpp"
+#include "todo/Config.hpp"
+#include "todo/Parser.hpp"
+#include "todo/Task.hpp"
+#include "todo/Renderer.hpp"
+#include "todo/Shell.hpp"
 
 Config config;
 
@@ -27,6 +28,10 @@ int main()
 
 
     printf("Enter commands or type 'help' for manual");
+
+    Shell *sh = new Shell();
+
+    sh->listen();
 
 
     return 0;
