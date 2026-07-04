@@ -2,6 +2,7 @@
 
 #include "todo/TaskStorage.hpp"
 #include "todo/Renderer.hpp"
+#include "todo/Task.hpp"
 
 enum class Command: int
 {

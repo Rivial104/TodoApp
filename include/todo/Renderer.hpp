@@ -36,4 +36,7 @@ void print_init()
     printf("\n");
 }
 
+// void print_type_legend() {printf("");};
+// void print_priority_legend() {printf("");};
+
 };

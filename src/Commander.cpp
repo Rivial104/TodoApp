@@ -28,6 +28,25 @@ bool Commander::handle_command(Command cmd)
 
         case Command::ADD:
         {
+            printf("Enter new task name: \n");
+            std::string taskname;
+            std::cin >> taskname;
+
+            printf("Enter task's type: \n");
+            char type;
+            std::cin >> type;
+            int tp = type - '0';
+
+            printf("Enter task's priority: \n");
+            char prio;
+            std::cin >> prio;
+            int pr = prio - '0';
+
+            Task t(_tstorage.size(), taskname, static_cast<Type>(tp), static_cast<Priority>(pr));
+
+            _tstorage.add_task(&t);
+
+
             return true;
         }
 
