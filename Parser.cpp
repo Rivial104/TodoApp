@@ -1,23 +1,38 @@
-#include "Interface.hpp"
+#include "Parser.hpp"
 
-using namespace task;
-
-Interface::Interface(int type)
+Parser::Parser(int type)
 {
     _type = type;
 
 }
 
-void Interface::init()
+void Parser::init()
 {
-    printf("###########    TODO LIST APP     ###########\n");
-    printf("###########  Author: pzawadzki   ###########\n");
-    printf("###########   Version: 0.0.1v    ###########\n");
+
 
 }
 
+Command Parser::handle_input(std::string input)
+{
+    int result{-1};
 
-std::vector<Task*> Interface::deserialize_tasks(const char tlistpath[])
+    std::cin >> input;
+    
+
+    if(input == "help" || input == "-h")
+    {
+        return Command::HELP;
+    }
+
+    if (input == "list")
+    {
+        return Command::LIST;
+    }
+
+    return Command::UNKNOWN;
+}
+
+std::vector<Task*> Parser::deserialize_tasks(std::string tlistpath)
 {
     std::vector<Task*> task_list;
     std::string task;
@@ -57,7 +72,7 @@ std::vector<Task*> Interface::deserialize_tasks(const char tlistpath[])
                             case 2: 
                             {
                                 const std::string type = task.substr(left+1, right-1);
-                                const task::Type t = static_cast<task::Type>(std::stoi(type));
+                                const Type t = static_cast<Type>(std::stoi(type));
                                 tmp->set_type(t);
                                 left = right;
                                 param++;
@@ -66,7 +81,7 @@ std::vector<Task*> Interface::deserialize_tasks(const char tlistpath[])
                             case 3: 
                             {
                                 const std::string prio = task.substr(left+1, right-1);
-                                const task::Priority p = static_cast<task::Priority>(std::stoi(prio));
+                                const Priority p = static_cast<Priority>(std::stoi(prio));
                                 tmp->set_priority(p);
                                 left = right;
                                 param++;

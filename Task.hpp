@@ -3,10 +3,6 @@
 #include <stdio.h>
 #include <string>
 
-
-namespace task
-{
-
 enum class Type : int
 {
     OTHER       = 0,
@@ -64,6 +60,4 @@ private:
         // Date date;
         // Date deadline;
     } _params;
-};
-
 };
